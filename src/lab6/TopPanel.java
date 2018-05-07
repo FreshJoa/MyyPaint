@@ -24,7 +24,7 @@ public class TopPanel extends JPanel implements ActionListener {
 	JLabel sizeLineLabel;
 	JComboBox<String> sizeLine;
 	JButton changeColor;
-	static Color lineColor;
+	static Color lineColor=Color.black;
 	Window window;
 	String pix1;
 	String pix5;

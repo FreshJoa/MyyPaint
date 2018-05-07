@@ -55,8 +55,7 @@ public class MauseListenersClass implements MouseMotionListener, MouseListener {
 			paintPanel.drawing.addPoint(e.getX(), e.getY());
 
 		}
-		
-		
+
 		if (window.topPanel.drawLabel.getText() == window.leftPanel.circleText) {
 			paintPanel.drawing = new Circel();
 			paintPanel.drawing.addPoint(e.getX(), e.getY());
@@ -74,13 +73,13 @@ public class MauseListenersClass implements MouseMotionListener, MouseListener {
 		if (window.topPanel.drawLabel.getText() == window.leftPanel.pencilText) {
 			paintPanel.drawings.add(paintPanel.drawing);
 			paintPanel.drawing.addPoint(e.getX(), e.getY());
-			
+
 		}
 		if (window.topPanel.drawLabel.getText() == window.leftPanel.rubberText) {
 			paintPanel.drawings.add(paintPanel.drawing);
 			paintPanel.drawing.addPoint(e.getX(), e.getY());
 			paintPanel.repaint();
-			
+
 		}
 
 		if (window.topPanel.drawLabel.getText() == window.leftPanel.emptySquareText
@@ -115,8 +114,7 @@ public class MauseListenersClass implements MouseMotionListener, MouseListener {
 	public void mouseDragged(MouseEvent e) {// Wywoływane po naciśnięciu przycisku myszy na komponencie, a następnie
 											// przeciągnięciu.
 		if (window.topPanel.drawLabel.getText() == window.leftPanel.strightLineText) {
-			paintPanel.drawing.xList.add(1);
-			paintPanel.drawing.yList.add(1);
+
 			paintPanel.drawing.xList.add(1, e.getX());
 			paintPanel.drawing.yList.add(1, e.getY());
 			paintPanel.repaint();
@@ -129,19 +127,17 @@ public class MauseListenersClass implements MouseMotionListener, MouseListener {
 			paintPanel.drawing.addPoint(e.getX(), e.getY());
 			paintPanel.repaint();
 		}
-		
+
 		if (window.topPanel.drawLabel.getText() == window.leftPanel.emptySquareText
 				|| window.topPanel.drawLabel.getText() == window.leftPanel.filledSqareText) {
-			paintPanel.drawing.xList.add(1);
-			paintPanel.drawing.yList.add(1);
+
 			paintPanel.drawing.xList.add(1, e.getX());
 			paintPanel.drawing.yList.add(1, e.getY());
 			paintPanel.repaint();
 
 		}
 		if (window.topPanel.drawLabel.getText() == window.leftPanel.circleText) {
-			paintPanel.drawing.xList.add(1);
-			paintPanel.drawing.yList.add(1);
+
 			paintPanel.drawing.xList.add(1, e.getX());
 			paintPanel.drawing.yList.add(1, e.getY());
 			paintPanel.repaint();

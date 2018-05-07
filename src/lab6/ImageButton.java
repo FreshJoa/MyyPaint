@@ -13,7 +13,7 @@ import javax.swing.JButton;
 public class ImageButton extends JButton {
 
 	BufferedImage buttonIcon;
-	String name;
+	
 	
 	public ImageButton(String path) throws IOException {
 		buttonIcon = ImageIO.read(new File(path));

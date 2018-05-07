@@ -27,6 +27,7 @@ public  class LeftPanel extends JPanel implements ActionListener {
 	ImageButton filledSqare;
 	ImageButton rubber;
 	Window window;
+	JButton lll;
 
 	public static String strightLineText = "Stright Line";
 	public static String circleText = "Circle";

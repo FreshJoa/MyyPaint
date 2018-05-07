@@ -13,9 +13,7 @@ public abstract class Drawing {
        Color colorLine;
        int sizeLine;
      
-       public static void setLineColor(Color color) {
-    	  // Drawing.colorLine=color;
-       }
+       
 	
        public void addPoint(int x, int y) {
            xList.add(x);

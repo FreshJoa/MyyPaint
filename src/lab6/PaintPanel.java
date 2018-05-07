@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,46 +24,32 @@ import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import sun.java2d.loops.DrawLine;
 
-public class PaintPanel extends JPanel   {
+public class PaintPanel extends JPanel {
 	Window window;
-	 
-	 BufferedImage image;
-	 int width, height;
-	 Graphics2D g2d;
-	 ArrayList <Drawing> drawings=new ArrayList<>();
-	 Drawing drawing=null;
-//	 MauseListenersClass mauseListener;
-	 TopPanel topPanel;
-	 Menu menu;
-	
-	 
+
+	BufferedImage image;
+	int width, height;
+	Graphics2D g2d;
+	ArrayList<Drawing> drawings = new ArrayList<>();
+	Drawing drawing = null;
+	TopPanel topPanel;
+	Menu menu;
 
 	public PaintPanel(Window window, MouseListener mouseListener, Menu menu) {
-		
-		super();
-		this.window=window;
-		this.menu=menu;
-		setBackground(Color.WHITE);
-	//	mauseListener=new MauseListenersClass(window, this);
-		//width=this.getWidth();
-		//height=this.getHeight();
-		
-		
-		
-	}
-	
 
-	
-	
+		super();
+		this.window = window;
+		this.menu = menu;
+		setBackground(Color.WHITE);
+
+	}
+
 	public void setBackgroudImage(BufferedImage imagee) {
-		
+
 		image = imagee;
 		repaint();
-		//setOpaque(false);
-		//Graphics g  =this.getGraphics();
-        //g2d.drawImage(image, 50, 50, image.getWidth()/3, image.getHeight()/3, this);
-        //repaint();
-}
+
+	}
 
 	public PaintPanel(LayoutManager layout) {
 		super(layout);
@@ -78,32 +65,39 @@ public class PaintPanel extends JPanel   {
 		super(layout, isDoubleBuffered);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	    @Override
-	    public void paintComponent(Graphics g) {
-	    	
 
-	    	super.paintComponent(g);
-	    	Graphics2D g2d = (Graphics2D) g;
-	    	    
-		        for(int i=0; i<drawings.size(); i++) {
-	    			drawings.get(i).draw(g2d);
-		        }
-		        if (drawing != null) {
-					drawing.draw(g2d);
-				}
-		       
-		    	if (image != null) {
-		    		int x = (this.getWidth() - image.getWidth(null)) / 2;
-		    	    int y = (this.getHeight() - image.getHeight(null)) / 2;
-		    	    g2d.drawImage(image, x, y, null);
-		    	}
-		   
-	    }
-		
+	@Override
+	public void paintComponent(Graphics g) {
+
+		if (image == null) {
+			int w=this.getWidth();
+			int h=this.getHeight();
+			image = (BufferedImage) this.createImage(w/2, h/2);
+			Graphics2D gc = image.createGraphics();
+			gc.setColor(Color.white);
+			
+			gc.fillRect(0,0, w, h);
+		}
+
+		Graphics2D g2d = (Graphics2D) g;
+		int x = (this.getWidth() - image.getWidth(null)) / 2;
+		int y = (this.getHeight() - image.getHeight(null)) / 2;
+		g2d.drawImage(image, x, y, this);
+
+		/*
+		 * super.paintComponent(g);
+		 * 
+		 * Graphics2D g2d = (Graphics2D) g; if (image != null) { int x =
+		 * (this.getWidth() - image.getWidth(null)) / 2; int y = (this.getHeight() -
+		 * image.getHeight(null)) / 2; g2d.drawImage(image, x, y, null); }
+		 */
+		for (int i = 0; i < drawings.size(); i++) {
+			drawings.get(i).draw(g2d);
+		}
+		if (drawing != null) {
+			drawing.draw(g2d);
+		}
+
+	}
+
 }
-
-
-		
