@@ -12,7 +12,7 @@ public abstract class Drawing {
        protected ArrayList<Integer> yList; 
        Color colorLine;
        int sizeLine;
-     
+     //zmiana
        
 	
        public void addPoint(int x, int y) {
