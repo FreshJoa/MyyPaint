@@ -17,7 +17,7 @@ public class ImageButton extends JButton {
 	
 	public ImageButton(String path) throws IOException {
 		buttonIcon = ImageIO.read(new File(path));
-		
+		//
 		this.setIcon(new ImageIcon(buttonIcon));
 		
 	}
